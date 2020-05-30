@@ -1,0 +1,11 @@
+  <!-- ngIf -->
+  <div class="card p-2 mb-3">
+    <p class="text-secondary">Conditionally rendering elements with *ngIf directive</p>
+    <div *ngIf="courses.length > 0; then listCourses; else noCourses"></div>
+    <ng-template #listCourses>List of courses</ng-template>
+    <ng-template #noCourses>No courses yet</ng-template>
+    <div hidden>This element is hidden</div>
+    <div [hidden]="courses.length === 0">
+      This element is only hidden when there are no courses
+    </div>
+  </div>

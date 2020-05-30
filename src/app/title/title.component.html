@@ -1,0 +1,9 @@
+  <label class="sr-only" for="inlineFormInput">Username</label>
+  <div class="input-group col p-0 mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Transforms input into title</div>
+    </div>
+    <input [(ngModel)]="title" type="text" class="form-control" id="inlineFormInput">
+  </div>
+
+  <p>{{ title | customTitleCase }}</p>

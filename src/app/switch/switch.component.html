@@ -1,0 +1,12 @@
+<div class="nav nav-pills mb-2">
+  <li class='nav-item'><button class="nav-link" [class.active]="viewMode == 'map'" (click)="viewMode = 'map'">Map
+      View</button>
+  </li>
+  <li class=" nav-item"><button class="nav-link" [class.active]="viewMode == 'list'" (click)="viewMode = 'list'">List
+      View</button></li>
+</div>
+<div [ngSwitch]='viewMode'>
+  <div *ngSwitchCase="'map'">Map View Content</div>
+  <div *ngSwitchCase="'list'">List View Content</div>
+  <div *ngSwitchDefault>Otherwise</div>
+</div>

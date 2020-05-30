@@ -1,0 +1,13 @@
+<div class="card p-2">
+  <div class="row align-items-center ">
+
+    <label class="sr-only" for="inlineFormInput">Username</label>
+    <div class="input-group col">
+      <div class="input-group-prepend">
+        <div class="input-group-text">Models field</div>
+      </div>
+      <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" type="text" class="form-control" id="inlineFormInput">
+    </div>
+    <p class="col mb-0">{{ email }}</p>
+  </div>
+</div>

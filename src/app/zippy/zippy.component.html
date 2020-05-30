@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="card-header font-weight-bold">
+    {{ title }}
+    <button class='btn float-right' (click)='toggle()'>
+      <fa-icon [icon]='isActive ? arrowUpIcon : arrowDownIcon'></fa-icon>
+    </button>
+  </div>
+  <div *ngIf='isActive' class="card-body">
+    <ng-content></ng-content>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<button class="btn btn-primary" (click)='onAdd()'>Add Course</button>
+<ul style='padding:0'>
+  <li *ngFor='let course of courses; index as i' class="card my-2 p-2">
+    <div class="inline-form">
+      <span>{{ i }} - {{ course }}</span>
+      <button class='btn btn-danger float-right mx-1' (click)='onRemove(course)'>Remove</button>
+      <button class="btn btn-info float-right mx-1" (click)='onUpdate(course)'>Update</button>
+    </div>
+  </li>
+</ul>

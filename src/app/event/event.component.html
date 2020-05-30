@@ -1,0 +1,11 @@
+<div class="form-inline">
+  <label class="sr-only" for="inlineFormInput">Username</label>
+  <div class="input-group col">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Logs value on enter</div>
+    </div>
+    <input #email (keyup.enter)="onKeyUp(email.value)" type="text" class="form-control" id="inlineFormInput">
+  </div>
+  <button class="btn btn-primary mx-1" [class.active]='isActive'>class binding</button>
+  <button class='btn btn-success mx-1' (click)='onSave($event)'>Logs event</button>
+</div>
