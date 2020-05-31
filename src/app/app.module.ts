@@ -20,6 +20,7 @@ import { TruncateComponent } from './truncate/truncate.component';
 import { EventComponent } from './event/event.component';
 import { SwitchComponent } from './switch/switch.component';
 import { ChangedetectionComponent } from './changedetection/changedetection.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ChangedetectionComponent } from './changedetection/changedetection.comp
     EventComponent,
     SwitchComponent,
     ChangedetectionComponent,
+    ContactFormComponent,
   ],
   imports: [BrowserModule, FormsModule, FontAwesomeModule],
   providers: [AuthorsService],
