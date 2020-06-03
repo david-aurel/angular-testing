@@ -1,84 +1,36 @@
-<form #form="ngForm">
-	<div class="form-group">
-		<label for="firstName">First Name</label>
-		<input
-			required
-			minlength="3"
-			maxlength="10"
-			pattern="banana"
-			ngModel
-			name="firstName"
-			#firstName="ngModel"
-			(change)="log(firstName)"
-			id="firstName"
-			type="text"
-			class="form-control"
-		/>
-
-		<div
-			class="alert alert-danger"
-			*ngIf="firstName.touched && !firstName.valid"
-		>
-			<div *ngIf="firstName.errors.required">
-				First Name is required
-			</div>
-			<div *ngIf="firstName.errors.minlength">
-				First Name should be minimum
-				{{ firstName.errors.minlength.requiredLength }}
-				characters
-			</div>
-			<div *ngIf="firstName.errors.pattern">
-				First Name doesn't match pattern 'banana'
-			</div>
-		</div>
-	</div>
-
-	<div class="form-group">
-		<label for="comment">Comment</label>
-		<textarea
-			ngModel
-			name="comment"
-			id="comment"
-			cols="30"
-			rows="10"
-			class="form-control"
-		></textarea>
-	</div>
-
-	<div class="checkbox">
-		<label>
-			<input type="checkbox" ngModel name="isSubscribed" /> Subscribe to
-			mailing list
-		</label>
-	</div>
-
-	<div class="form-group">
-		<label for="contactMethod"></label>
-		<select
-			ngModel
-			name="contactMethod"
-			id="contactMethod"
-			class="form-control"
-		>
-			<option value="">Select Contact Method</option>
-			<option *ngFor="let method of contactMethods" [value]="method.id">{{
-				method.name
-			}}</option>
-		</select>
-	</div>
-
-	<div class="radio" *ngFor="let method of contactMethods">
-		<label>
-			<input
-				type="radio"
-				ngModel
-				name="contactMethod"
-				[value]="method.id"
-			/>
-			{{ method.name }}
-		</label>
-	</div>
-	<p>{{ form.value | json }}</p>
-
-	<button class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+<form #form="ngForm" (ngSubmit)="submit(form.value)">
+  <div class="form-group">
+    <label for="name">Course Name</label>
+    <input ngModel name="courseName" #courseName="ngModel" required minlength="3" type="text" id="name"
+      class="form-control" />
+    <div *ngIf="courseName.touched && courseName.invalid">
+      <p *ngIf="courseName.errors.required" class="alert alert-danger">
+        Course name is required
+      </p>
+      <p *ngIf="courseName.errors.minlength" class="alert alert-danger">
+        Course name should be minimum
+        {{ courseName.errors.minlength.requiredLength }} characters
+      </p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="category">Category</label>
+    <select ngModel name="category" #category="ngModel" required id="category" class="form-control">
+      <option value=""></option>
+      <option *ngFor="let category of categories" [value]="category.id">{{
+        category.name
+      }}</option>
+    </select>
+    <div *ngIf="category.touched && category.errors" class="alert alert-danger">
+      Category is required
+    </div>
+  </div>
+  <label for="guarantee">
+    <input ngModel name="guarantee" type="checkbox" id="guarantee" class="formControl" />
+    30 Days Money Back Guarantee
+  </label>
+  <p>{{ form.value | json }}</p>
+  <button type="submit" [disabled]="!form.valid" class="btn btn-primary">
+    Create
+  </button>
 </form>

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AuthorsComponent } from './authors/authors.component';
@@ -21,6 +21,9 @@ import { EventComponent } from './event/event.component';
 import { SwitchComponent } from './switch/switch.component';
 import { ChangedetectionComponent } from './changedetection/changedetection.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
+import { TopicFormComponent } from './topic-form/topic-form.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -41,8 +44,11 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     SwitchComponent,
     ChangedetectionComponent,
     ContactFormComponent,
+    SignupFormComponent,
+    TopicFormComponent,
+    ResetPasswordComponent,
   ],
-  imports: [BrowserModule, FormsModule, FontAwesomeModule],
+  imports: [BrowserModule, FormsModule, FontAwesomeModule, ReactiveFormsModule],
   providers: [AuthorsService],
   bootstrap: [AppComponent],
 })
