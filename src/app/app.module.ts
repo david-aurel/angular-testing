@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -24,6 +24,10 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { TopicFormComponent } from './topic-form/topic-form.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { PostsComponent } from './posts/posts.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PostService } from './services/post.service';
+import { AppErrorHandler } from './common/app-error-handler';
 
 @NgModule({
   declarations: [
@@ -47,9 +51,20 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     SignupFormComponent,
     TopicFormComponent,
     ResetPasswordComponent,
+    PostsComponent,
   ],
-  imports: [BrowserModule, FormsModule, FontAwesomeModule, ReactiveFormsModule],
-  providers: [AuthorsService],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    FontAwesomeModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
+  providers: [
+    AuthorsService,
+    PostService,
+    { provide: ErrorHandler, useClass: AppErrorHandler },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
