@@ -1,8 +1,10 @@
-<input (keyup.enter)='createPost(title)' #title type="text" class="form-control">
-<ul class="list-group">
-  <li *ngFor='let post of posts | slice:0:5' class="list-group-item">
-    <button (click)='updatePost(post)' class="btn btn-info btn-small">Update</button>
-    <button (click)='deletePost(post)' class="btn btn-danger btn-small">Delete</button>
-    {{ post.title }}
-  </li>
-</ul>
+<container title='Error handled http service'>
+  <input (keyup.enter)='createPost(title)' #title type="text" class="form-control">
+  <ul class="list-group">
+    <li *ngFor='let post of posts | slice:0:5' class="list-group-item">
+      <button (click)='updatePost(post)' class="btn btn-info btn-small">Update</button>
+      <button (click)='deletePost(post)' class="btn btn-danger btn-small">Delete</button>
+      {{ post.title }}
+    </li>
+  </ul>
+</container>

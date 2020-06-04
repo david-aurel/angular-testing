@@ -30,6 +30,13 @@ import { PostService } from './services/post.service';
 import { AppErrorHandler } from './common/app-error-handler';
 import { GithubComponent } from './github/github.component';
 import { GithubService } from './services/github.service';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { GithubProfileComponent } from './github-profile/github-profile.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FormsComponent } from './forms/forms.component';
+import { MiscComponent } from './misc/misc.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +62,12 @@ import { GithubService } from './services/github.service';
     ResetPasswordComponent,
     PostsComponent,
     GithubComponent,
+    HomeComponent,
+    GithubProfileComponent,
+    NotFoundComponent,
+    NavbarComponent,
+    FormsComponent,
+    MiscComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +75,15 @@ import { GithubService } from './services/github.service';
     FontAwesomeModule,
     ReactiveFormsModule,
     HttpClientModule,
+    RouterModule.forRoot([
+      { path: 'followers/:username', component: GithubProfileComponent },
+      { path: 'followers', component: GithubComponent },
+      { path: 'forms', component: FormsComponent },
+      { path: 'misc', component: MiscComponent },
+      { path: 'posts', component: PostsComponent },
+      { path: '', component: HomeComponent },
+      { path: '**', component: NotFoundComponent },
+    ]),
   ],
   providers: [
     AuthorsService,

@@ -1,12 +1,16 @@
-<h1>My followers</h1>
+<container title='Github api consumption'>
+  <h1>Github Followers</h1>
 
+  <div *ngFor='let follower of followers' class='media my-4'>
+    <div class="media-left">
+      <a [routerLink]='["/followers", follower.login]'>
+        <img [src]='follower.avatar_url' class="mr-4">
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">{{ follower.login }}</h4>
+      <a target=' _blank' [href]='follower.html_url'>{{ follower.html_url}}</a>
+    </div>
+  </div>
 
-<div *ngFor='let follower of followers' class='media my-4'>
-  <div class="media-left">
-    <img [src]='follower.avatar_url' class="mr-4">
-  </div>
-  <div class="media-body">
-    <h4 class="media-heading">{{ follower.login }}</h4>
-    <a target=' _blank' [href]='follower.html_url'>{{ follower.html_url}}</a>
-  </div>
-</div>
+</container>
