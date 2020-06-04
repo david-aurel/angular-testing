@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { favoriteChangedEventArgs } from '../favorite/favorite.component';
 
 @Component({
@@ -6,7 +6,7 @@ import { favoriteChangedEventArgs } from '../favorite/favorite.component';
   templateUrl: './misc.component.html',
   styleUrls: ['./misc.component.css'],
 })
-export class MiscComponent implements OnInit {
+export class MiscComponent {
   post = {
     isFavorite: true,
   };
