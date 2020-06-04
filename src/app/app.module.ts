@@ -28,6 +28,8 @@ import { PostsComponent } from './posts/posts.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PostService } from './services/post.service';
 import { AppErrorHandler } from './common/app-error-handler';
+import { GithubComponent } from './github/github.component';
+import { GithubService } from './services/github.service';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import { AppErrorHandler } from './common/app-error-handler';
     TopicFormComponent,
     ResetPasswordComponent,
     PostsComponent,
+    GithubComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +66,7 @@ import { AppErrorHandler } from './common/app-error-handler';
   providers: [
     AuthorsService,
     PostService,
+    GithubService,
     { provide: ErrorHandler, useClass: AppErrorHandler },
   ],
   bootstrap: [AppComponent],
